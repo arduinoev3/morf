@@ -106,11 +106,9 @@ body {
 
 .main-image {
   position: absolute;
-  top: -100px;
-  right: -176px;
+  top: 78px;
+  right: -576px;
   z-index: -1;
-  width: 800px;
-  height: auto;
 }
 
 .main {
@@ -137,119 +135,113 @@ body {
   letter-spacing: normal;
 }
 
-.cars {
-  background-color: #000000;
+.items {
+  background-color: #000;
   padding: 130px 0;
 }
 
-.cars h2 {
+.items h2 {
   font-size: 65px;
   font-weight: normal;
 }
 
-.cars-content {
+.items-content {
   display: flex;
   padding-top: 60px;
 }
 
-.cars-filter {
+.items-filter {
   margin-right: 77px;
   align-self: flex-start;
   position: sticky;
   top: 20px;
 }
 
-.cars-filter ul {
+.items-filter ul {
   display: flex;
   flex-direction: column;
   row-gap: 15px;
   list-style: none;
 }
 
-.cars-filter ul li {
+.items-filter ul li {
   width: 127px;
   padding: 16px;
   text-align: center;
   border: 1px solid white;
   font-size: 16px;
-  color: #ffffff;
+  color: #fff;
   box-sizing: border-box;
   cursor: pointer;
-  outline: none;
 }
 
-.cars-filter ul li.active,
-.cars-filter ul li:hover {
+.items-filter ul li.active,
+.items-filter ul li:hover {
   color: #f8ff23;
   border-color: #f8ff23;
 }
 
-.cars-items {
+.items-list {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
 }
 
-.car {
+.item {
   background-color: #212121;
   padding: 20px;
   display: flex;
 }
 
-.car img {
+.item img {
   max-width: 568px;
 }
 
-.car-details {
+.item-details {
   margin-left: 24px;
   display: flex;
   flex-direction: column;
 }
 
-.car-details h4 {
+.item-details h4 {
   font-size: 30px;
-  line-height: 120%;
   margin-bottom: 20px;
 }
 
-.car-details p {
+.item-details p {
   font-size: 16px;
   line-height: 120%;
-  letter-spacing: normal;
   color: #d4d4d4;
   height: 100px;
 }
 
-.car-action {
+.item-action {
   margin-top: auto;
 }
 
-.car-action ul {
+.item-action ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.car-period {
+.item-period {
   font-size: 16px;
-  line-height: 120%;
   color: #d4d4d4;
   margin-bottom: 5px;
 }
 
-.car-price {
+.item-price {
   font-size: 24px;
-  line-height: 120%;
 }
 
-.car-price span {
+.item-price span {
   font-size: 16px;
-  line-height: 120%;
   color: #d4d4d4;
 }
 
-.car-action .button {
+.item-action .button {
   width: 100%;
 }
 
