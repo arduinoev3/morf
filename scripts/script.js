@@ -1,6 +1,6 @@
-const filterItems = document.querySelectorAll('.cars-filter li');
-const carItems = document.querySelectorAll('.car');
-const carsContent = document.getElementById('cars-content');
+const filterItems = document.querySelectorAll('.items-filter li');
+const itemCards   = document.querySelectorAll('.item');
+const itemsContent = document.getElementById('items-content');
 
 filterItems.forEach((item) => {
   item.onclick = () => {
@@ -10,49 +10,14 @@ filterItems.forEach((item) => {
 
     const filterText = item.textContent.toLowerCase();
 
-    // показываем / скрываем карточки автомобилей
-    carItems.forEach((car) => {
-      const carTitle = car.querySelector('h4').textContent.toLowerCase();
-
-      if (filterText === 'все марки' || carTitle.includes(filterText)) {
-        car.style.display = 'flex';
-      } else {
-        car.style.display = 'none';
-      }
+    // показываем / скрываем карточки
+    itemCards.forEach((card) => {
+      const title = card.querySelector('h4').textContent.toLowerCase();
+      card.style.display =
+        filterText === 'все' || title.includes(filterText) ? 'flex' : 'none';
     });
 
     // мгновенно скроллим к блоку с карточками
-    carsContent.scrollIntoView({ behavior: 'instant' });
+    itemsContent.scrollIntoView({ behavior: 'instant' });
   };
-});
-
-const btn = document.getElementById('order-action');
-const fields = {
-  car: document.getElementById('car'),
-  name: document.getElementById('name'),
-  phone: document.getElementById('phone'),
-};
-
-btn.addEventListener('click', () => {
-  let hasError = false;
-
-  Object.entries(fields).forEach(([key, input]) => {
-    const value = input.value.trim();
-
-    const isValid =
-      key === 'phone'
-        ? value.length > 10 // ► новая простая проверка
-        : value.length > 0; // ► для name и car — непустое поле
-
-    input.style.borderColor = isValid ? '#fff' : 'red';
-    if (!isValid) hasError = true;
-  });
-
-  if (!hasError) {
-    alert('Спасибо за заявку! Мы скоро свяжемся с вами');
-    Object.values(fields).forEach((input) => {
-      input.value = '';
-      input.style.borderColor = '#fff';
-    });
-  }
 });
