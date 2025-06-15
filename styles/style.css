@@ -145,6 +145,10 @@ body {
   font-weight: normal;
 }
 
+.items img {
+  height: 30vh;
+}
+
 .items-content {
   display: flex;
   padding-top: 60px;
