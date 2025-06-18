@@ -106,9 +106,11 @@ body {
 
 .main-image {
   position: absolute;
-  top: 78px;
-  right: -576px;
+  top: -100px;
+  right: -176px;
   z-index: -1;
+  width: 800px;
+  height: auto;
 }
 
 .main {
@@ -268,8 +270,10 @@ body {
 
 .order img {
   position: absolute;
-  top: -25px;
-  left: -530px;
+  top: -100px;
+  left: -100px;
+  width: 800px;
+  height: auto;
 }
 
 .order form {
