@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  background-color: #212121;
+  background-color: #A47864;
   font-family: 'Helvetica', sans-serif;
   letter-spacing: -1px;
   color: #ffffff;
@@ -194,7 +194,7 @@ body {
 }
 
 .item {
-  background-color: #212121;
+  background-color: #A47864;
   padding: 20px;
   display: flex;
 }
