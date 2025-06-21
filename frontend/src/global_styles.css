@@ -1,0 +1,16 @@
+/* Add application styles & imports to this file! */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #A47864;
+  font-family: 'Arimo', sans-serif;
+  letter-spacing: -1px;
+  color: #ffffff;
+}
