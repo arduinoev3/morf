@@ -131,8 +131,7 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "feedback", "static"),
-    os.path.join(BASE_DIR, "svelte", "static"),
+    os.path.join(BASE_DIR, "public"),
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
