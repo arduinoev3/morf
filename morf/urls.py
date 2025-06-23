@@ -23,5 +23,5 @@ urlpatterns = [
     path('', include('rentals.urls')),         # без префикса, чтобы пути совпали
 
     # всё остальное (в том числе «/») отдаём фронту
-    re_path(r'^(?:.*)/?$', FrontendAppView.as_view(), name='spa'),
+    #re_path(r'^(?:.*)/?$', FrontendAppView.as_view(), name='spa'),
 ]
