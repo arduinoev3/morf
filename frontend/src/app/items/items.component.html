@@ -1,0 +1,160 @@
+<main class="main">
+  <!-- ====== HEADER ====== -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo.png" alt="Logo" />
+      </div>
+
+      <nav class="menu">
+        <ul>
+          <li><a href="#items">Каталог</a></li>
+          <li><a href="#order">Забронировать</a></li>
+        </ul>
+      </nav>
+
+      <a href="tel:+79032072211" class="phone">+7 903 207-22-11</a>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section class="main-content">
+    <div class="container">
+      <div class="main-info">
+        <h1>Покорите других за&nbsp;счёт люксовых вещей!</h1>
+        <p>
+          От&nbsp;эксклюзивных образов до&nbsp;модных аксессуаров — выбирайте
+          мечту, одевайте и&nbsp;ощутите премиальный эффект на&nbsp;полную!
+        </p>
+        <a href="#items" class="button" id="main-action-button"
+          >Посмотреть вещи</a
+        >
+      </div>
+
+      <img src="images/main-thing.png" alt="Main item" class="main-image" />
+    </div>
+  </section>
+
+  <div class="black-block"></div>
+</main>
+
+<!-- ====== CATALOGUE ====== -->
+<section class="items" id="items">
+  <div class="container">
+    <h2>Каталог</h2>
+
+    <div class="items-content" id="items-content" #itemsContent>
+      <!-- ---- фильтр ---- -->
+      <div class="items-filter">
+        <ul>
+          @for (filter of itemsFilter; track $index) {
+          <li
+            [class.active]="filter.active"
+            (click)="changeFilter(filter, itemsContent)"
+          >
+            {{ filter.name }}
+          </li>
+          }
+        </ul>
+      </div>
+
+      <!-- ---- карточки ---- -->
+      <div class="items-list">
+        @for (item of items; track item.title) {
+        <article class="item">
+          <img [src]="item.image" [alt]="item.title" />
+
+          <div class="item-details">
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.text }}</p>
+
+            <div class="item-action">
+              <ul>
+                @for (period of ['на 1 сутки', 'на 1–3 суток', 'на 3+ суток'];
+                track $index) {
+                <li>
+                  <div class="item-period">{{ period }}</div>
+                  <div class="item-price">
+                    {{ item.prices[$index] }} руб @if ($index > 0) {
+                    <span>/сут</span>
+                    }
+                  </div>
+                </li>
+                }
+              </ul>
+
+              <a
+                href="#order"
+                class="button white-button"
+                (click)="orderForm.get('item')?.setValue(item.title)"
+              >
+                Забронировать
+              </a>
+            </div>
+          </div>
+        </article>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ORDER FORM ====== -->
+<section class="order" id="order">
+  <div class="container">
+    <img src="images/order-thing.png" alt="Order thing" />
+
+    <form [formGroup]="orderForm">
+      <h3>Забронируйте</h3>
+      <p>
+        Заполните контактные данные, и мы перезвоним вам для&nbsp;обсуждения
+        деталей и&nbsp;подтверждения бронирования
+      </p>
+
+      <div class="order-form">
+        <input
+          type="text"
+          placeholder="Вещь"
+          formControlName="item"
+          readonly
+          [class.error]="isError('item')"
+        />
+
+        <input
+          type="text"
+          placeholder="Ваше имя"
+          formControlName="name"
+          [class.error]="isError('name')"
+        />
+
+        <input
+          type="text"
+          placeholder="Ваш телефон"
+          formControlName="phone"
+          minlength="10"
+          [class.error]="isError('phone')"
+        />
+
+        <button
+          class="button"
+          type="button"
+          id="order-action"
+          (click)="sendOrder()"
+          [disabled]="!orderForm.valid"
+        >
+          Забронировать
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="container">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo" />
+    </div>
+    <div class="rights">Все права защищены</div>
+  </div>
+</footer>

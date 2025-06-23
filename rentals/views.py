@@ -29,3 +29,14 @@ def items_order(request):
         {"message": "Спасибо! Мы свяжемся с вами в ближайшее время."},
         status=status.HTTP_201_CREATED
     )
+
+
+from django.views.generic import TemplateView
+
+class FrontendAppView(TemplateView):
+    # index.html лежит в STATIC_ROOT после билда
+    template_name = "index.html"
+
+    # SPA-fallback: всё, что не начинается с /admin/ или /api/, отдаём index.html
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)

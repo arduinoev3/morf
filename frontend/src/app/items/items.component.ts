@@ -14,9 +14,15 @@ export class ItemsComponent {
 
   items: any = [];
   itemsFilter = [
-    { active: true, name: 'Все' },
-    { active: false, name: 'GUCCI' },
-    { active: false, name: 'PRADA' },
+    { active: true, name: 'Все марки' }, // первый — активный
+    { active: false, name: 'Lamborghini' },
+    { active: false, name: 'Ferrari' },
+    { active: false, name: 'Porsche' },
+    { active: false, name: 'BMW' },
+    { active: false, name: 'Mercedes' },
+    { active: false, name: 'Chevrolet' },
+    { active: false, name: 'Audi' },
+    { active: false, name: 'Ford' },
   ];
 
   orderForm = new FormGroup({
@@ -31,7 +37,7 @@ export class ItemsComponent {
 
   fetchItems(filter: string) {
     this.http
-      .get('https://<HEROKU_APP>.herokuapp.com/items-data', {
+      .get('https://testologia.ru/cars-data', {
         params: { filter },
       })
       .subscribe((data) => (this.items = data));
@@ -52,7 +58,7 @@ export class ItemsComponent {
   sendOrder() {
     if (this.orderForm.valid) {
       this.http
-        .post('https://<HEROKU_APP>.herokuapp.com/items-order', this.orderForm.value)
+        .post('https://testologia.ru/cars-order', this.orderForm.value)
         .subscribe({
           next: (r: any) => {
             alert(r.message);
