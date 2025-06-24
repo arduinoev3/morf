@@ -14,18 +14,8 @@ def items_data(request):
     qs = Item.objects.all()
     if flt and flt not in ('', 'все'):
         qs = qs.filter(brand__iexact=flt)
-    #return Response(ItemSerializer(qs, many=True).data)
-    return Response(
-        [
-            {
-                "image": "https://testologia.ru/cars-images/3.png",
-                "title": "fewefw",
-                "text": "fewfwefwef",
-                "prices": [1, 2, 3]
-            }
-        ],
-        status=status.HTTP_200_OK
-    )
+    return Response(ItemSerializer(qs, many=True).data)
+    #return Response([{"image":"https://testologia.ru/cars-images/3.png","title":"fewefw","text":"fewfwefwef","prices":[1,2,3]}], status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
